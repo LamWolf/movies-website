@@ -27,7 +27,7 @@ app.get('/', function(req, res) {
 		}
 
 		res.render('index', {
-			title: 'imooc 首页',
+			title: '',
 			movies: movies
 		})
 	})
@@ -39,7 +39,7 @@ app.get('/movie/:id', function(req, res) {
 
 	Movie.findById(id, function(err, movie) {
 		res.render('detail', {
-			title: 'imooc ' + movie.title,
+			title: '>' + movie.title,
 			movie: movie
 		})
 	})
@@ -48,7 +48,7 @@ app.get('/movie/:id', function(req, res) {
 // admin page
 app.get('/admin/movie', function(req, res) {
 	res.render('admin', {
-		title: 'imooc 后台录入页',
+		title: '>LamWolf 电影后台录入页',
 		movie: {
 			title: '',
 			doctor: '',
@@ -69,7 +69,7 @@ app.get('/admin/update/:id', function(req, res) {
 	if(id) {
 		Movie.findById(id, function(err, movie) {
 			res.render('admin', {
-				title: 'imooc 后台更新页',
+				title: '>LamWolf 后台更新页',
 				movie: movie
 			})
 		})
@@ -130,7 +130,7 @@ app.get('/admin/list', function(req, res) {
 		}
 		
 		res.render('list', {
-			title: 'imooc 列表页',
+			title: '>LamWolf 电影列表页',
 			movies: movies
 		})
 	})
